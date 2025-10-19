@@ -1,0 +1,18 @@
+{
+  "type": "module",
+  "name": "agentql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scrapper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "agentql": "^1.14.0",
+    "dotenv": "^17.2.2",
+    "playwright": "^1.55.0"
+  }
+}
