@@ -14,9 +14,8 @@ COPY requirements.txt /tmp/requirements.txt
 RUN pip3 install --no-cache-dir -r /tmp/requirements.txt
 
 # Install Node deps (for your scraper)
-COPY package.json /tmp/
-RUN npm install
-# RUN cd /tmp && npm ci --omit=dev
+COPY package.json package-lock.json /tmp/
+RUN cd /tmp && npm ci --omit=dev
 
 # Security: create non-root user (matches n8n expectations)
 RUN useradd -ms /bin/bash node
