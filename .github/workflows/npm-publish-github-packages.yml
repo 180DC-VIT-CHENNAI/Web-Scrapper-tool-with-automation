@@ -1,0 +1,32 @@
+name: Build and Push n8n Image with defaults to GHCR.io
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Docker image
+        run: |
+          docker build -t ghcr.io/sugeethjsa/web-scrapper-tool-with-automation:latest .
+
+      - name: Push Docker image
+        run: |
+          docker push ghcr.io/sugeethjsa/web-scrapper-tool-with-automation:latest

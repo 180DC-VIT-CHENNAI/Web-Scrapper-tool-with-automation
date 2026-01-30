@@ -11,8 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "agentql": "^1.14.0",
-    "dotenv": "^17.2.2",
-    "playwright": "^1.55.0"
+    "agentql": "^1.17.0",
+    "dotenv": "^17.2.3",
+    "playwright": "^1.58.0"
   }
 }

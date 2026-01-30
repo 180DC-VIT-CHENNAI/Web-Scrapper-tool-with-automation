@@ -13,7 +13,7 @@ async function scraper() {
     apiKey: process.env.AGENTQL_API_KEY, 
   });
 
-  const browser = await chromium.launch({ headless: false });
+  const browser = await chromium.launch({ headless: true });
   const page = await wrap(await browser.newPage());
 
   if (!url) {
