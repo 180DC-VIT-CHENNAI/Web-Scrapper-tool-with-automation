@@ -1,4 +1,4 @@
-name: Build and Publish Sample n8n Image
+name: Build and Push n8n Image with defaults to GHCR.io
 
 on:
   push:
