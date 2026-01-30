@@ -4,14 +4,17 @@ from google.oauth2.service_account import Credentials
 
 # Path to your credentials file
 CREDENTIALS_FILE = 'credentials.json'
-# Name of your Google Sheet
-SHEET_ID = '1lCAwR_V3D-dthOaVQXyfS95DG8aDhBu4l44Z_26BDbk'  # Replace with your actual Sheet ID
 
 # Define the scope
 SCOPES = [
     'https://www.googleapis.com/auth/spreadsheets',
     'https://www.googleapis.com/auth/drive'
 ]
+
+# Here we load settings json safely and extract the sheet ID. Place Google sheet ID in the Settings.json accordingly.
+with open("settings.json", 'r', encoding='utf-8') as settings_file:
+    settings = json.load(settings_file)
+    SHEET_ID = settings["sheet_id"]
 
 # Authenticate and connect to Google Sheets
 creds = Credentials.from_service_account_file(CREDENTIALS_FILE, scopes=SCOPES)
