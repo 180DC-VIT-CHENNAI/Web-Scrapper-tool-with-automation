@@ -16,13 +16,14 @@ if st.button("Scrape"):
         st.code(result.stdout)
         if result.stderr:
             st.error(result.stderr)
+        else:
+            st.success("Data exported as data.json, push data to Google Sheets using the below button.", icon = "✅")
     else:
         st.warning("Please enter a URL.")
 
 if st.button("Push to GSheets"):
-    subprocess.run(".venv/Scripts/activate.bat")
-    result = subprocess.run(["python","send_to_gsheets.py"], capture_output=True, text=True, encoding="utf-8")
-    st.write("Output")
-    st.code(result.stdout)
-    if result.stderr:
-        st.error(result.stderr)
+    result = send_to_gsheets.core_operations()
+    if (result == "success"):
+        st.success("Data sent to Google Sheets successfully!", icon = "✅")
+    else:
+        st.error(result)
